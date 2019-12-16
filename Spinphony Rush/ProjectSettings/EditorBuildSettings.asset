@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Menus/MainMenu.unity
+    guid: 5ec4078daff7b3f4f97de7ee5e0c7b0d
+  - enabled: 1
+    path: Assets/Scenes/Menus/Options.unity
+    guid: cf0ba9f8511466b468c3c2b60ed2a6df
+  - enabled: 1
+    path: Assets/Scenes/Menus/Phonies.unity
+    guid: e177464f699ed214788598cc59b1930a
+  - enabled: 1
+    path: Assets/Scenes/Menus/Phony Selection.unity
+    guid: 60b7d73dd3e35ba4c879be74117eb925
+  - enabled: 1
+    path: Assets/Scenes/Menus/Map Selection.unity
+    guid: 81e5471b7a83b414e94c30d44af0f5cd
+  - enabled: 1
+    path: Assets/Scenes/Map1.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/Map2.unity
+    guid: a3663ca7edbfe5d4b8035ab06a3a76b9
+  m_configObjects: {}
