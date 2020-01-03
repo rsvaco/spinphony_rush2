@@ -205,7 +205,7 @@ MonoBehaviour:
   down: 115
   hability: 122
   boost: 120
-  reverb: 0
+  reverb: 99
 --- !u!1 &7010525308142010193
 GameObject:
   m_ObjectHideFlags: 0
@@ -544,36 +544,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6223378855054532352, guid: 3c6c2090002694f43a8bc574b4df7920,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 6195644292329439135}
-    - target: {fileID: 6223378855107439692, guid: 3c6c2090002694f43a8bc574b4df7920,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6223378855107439692, guid: 3c6c2090002694f43a8bc574b4df7920,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6223378855934178972, guid: 3c6c2090002694f43a8bc574b4df7920,
-        type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6223378855934178972, guid: 3c6c2090002694f43a8bc574b4df7920,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6223378855440933686, guid: 3c6c2090002694f43a8bc574b4df7920,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6223378855934178969, guid: 3c6c2090002694f43a8bc574b4df7920,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -588,6 +558,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 36.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6223378855054532352, guid: 3c6c2090002694f43a8bc574b4df7920,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 6195644292329439135}
+    - target: {fileID: 6223378855934178972, guid: 3c6c2090002694f43a8bc574b4df7920,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6223378855934178972, guid: 3c6c2090002694f43a8bc574b4df7920,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6223378855107439692, guid: 3c6c2090002694f43a8bc574b4df7920,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6223378855107439692, guid: 3c6c2090002694f43a8bc574b4df7920,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6223378855440933686, guid: 3c6c2090002694f43a8bc574b4df7920,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c6c2090002694f43a8bc574b4df7920, type: 3}

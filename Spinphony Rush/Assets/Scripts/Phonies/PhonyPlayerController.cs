@@ -30,6 +30,7 @@ public class PhonyPlayerController : MonoBehaviour {
     private bool isBeaten = false;
     private bool keysDisabler = false;
     private bool isReverb = false;
+    private bool insideLimits = true;
 
     public PhysicMaterial normalPhysic;
     public PhysicMaterial movePhysic;
@@ -165,7 +166,7 @@ public class PhonyPlayerController : MonoBehaviour {
     }
 
     void OnCollisionEnter(Collision col) {
-        if (col.gameObject.name == "Tronco") {
+        if (col.gameObject.tag == "Map") {
             phony_body.drag = 0;
             collisionCount++;
         }
@@ -208,15 +209,20 @@ public class PhonyPlayerController : MonoBehaviour {
     }
 
     void OnCollisionStay(Collision col) {
-        if (col.gameObject.name == "Tronco") {
+        if (col.gameObject.tag == "Map") {
             collisionCount = 1;
         }
     }
     void OnCollisionExit(Collision col) {
-        if (col.gameObject.name == "Tronco") {
+        if (col.gameObject.tag == "Map") {
             phony_body.drag = 0.1f;
             collisionCount--;
         }
+        if (col.gameObject.tag == "Limit")
+        {
+            insideLimits = false;
+        }
+
 
         if (col.gameObject.name == "Phony_Player" || col.gameObject.name == "Phony_IA")
         {
@@ -316,11 +322,8 @@ public class PhonyPlayerController : MonoBehaviour {
 
     }
 
-    private bool isOnLimits() {
-        if (
-        Mathf.Abs(this.gameObject.transform.position.x) <= 300 &&
-        Mathf.Abs(this.gameObject.transform.position.y) <= 300 &&
-        Mathf.Abs(this.gameObject.transform.position.z) <= 300) {
+    private bool isOnLimits() { /////toca cambiarlo entero
+        if (insideLimits) {
             return true;
         }
         else {

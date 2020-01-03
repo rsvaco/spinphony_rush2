@@ -689,7 +689,7 @@ GameObject:
   - component: {fileID: 4101066470785006534}
   - component: {fileID: 4101066470785006535}
   m_Layer: 0
-  m_Name: Phony_Player
+  m_Name: Phony_Player1
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -27,11 +27,14 @@ public class GenerateObstacle : MonoBehaviour
 
     void Start()
     {
+        print("www");
         map = GameObject.FindGameObjectWithTag("Map");
         mapCollider = map.GetComponent<Collider>();
         mapMesh = map.GetComponent<MeshFilter>().mesh;
         colliderBounds = mapCollider.bounds;
         vectors = getPointsFromFile(Application.dataPath + "/DataMaps/TreeRandomPoints.txt");
+        print("www");
+        print(vectors);
         obstacleName = obstacle.name;
         timerDurationSpawn = UnityEngine.Random.Range(10, 20);
         timerDurationDelete = UnityEngine.Random.Range(12, 17);
