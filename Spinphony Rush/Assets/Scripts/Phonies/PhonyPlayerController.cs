@@ -100,7 +100,7 @@ public class PhonyPlayerController : MonoBehaviour {
         }
 
         if (!isOnLimits()) {
-            Destroy(this.gameObject);
+            Destroy(this.gameObject.transform.parent.gameObject);
         }
         if (collisionCount == 0) {
             phony_body.AddForce(Physics.gravity * 3);
@@ -359,6 +359,7 @@ public class PhonyPlayerController : MonoBehaviour {
     private bool muerte() {
         muerto = true;
         gameObject.tag = "Untagged";
+        this.transform.parent.gameObject.tag = "Untagged";
         Destroy(currentFuelle.gameObject, 1.0f);
         this.enabled = false;
         print("Destroyed");

@@ -104,7 +104,7 @@ public class PhonyIAController : MonoBehaviour
 
         if (!isOnLimits())
         {
-            Destroy(this.gameObject);
+            Destroy(this.transform.parent.gameObject);
         }
         if (collisionCount == 0)
         {
@@ -419,6 +419,7 @@ public class PhonyIAController : MonoBehaviour
     private bool muerte()
     {
         muerto = true;
+        this.transform.parent.gameObject.tag = "Untagged";
         gameObject.tag = "Untagged";
         Destroy(currentFuelle.gameObject, 1.0f);
         this.enabled = false;

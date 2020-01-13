@@ -8,6 +8,7 @@ TagManager:
   - HUD
   - Map
   - Limit
+  - numRondas
   layers:
   - Default
   - TransparentFX

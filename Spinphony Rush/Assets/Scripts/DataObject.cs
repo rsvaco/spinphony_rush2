@@ -9,6 +9,7 @@ public class DataObject : MonoBehaviour
 {
     public String Player1Controller, Player2Controller, Player3Controller, Player4Controller;
     public static int numJugadores;
+    public static int numRondas;
     private StartFightButton startFightScript;
 
     public static KeysTable player1Keyboard;
@@ -16,28 +17,36 @@ public class DataObject : MonoBehaviour
     public static KeysTable player3Keyboard;
     public static KeysTable player4Keyboard;
 
+    public bool destroy;
+
     private List<string> players = new List<string>();
     private List<KeysTable> keystables = new List<KeysTable>();
     
 
     void Awake()
     {
-        DontDestroyOnLoad(transform.gameObject);
+        if (!destroy)
+        {
+            DontDestroyOnLoad(transform.gameObject);
+        }
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        numRondas = PlayerPrefs.GetInt("rondas");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Phony Selection"))
+        
+        //numJugadores = startFightScript.numPlayers();
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Phony Selection"))
         {
             startFightScript = GameObject.Find("Start Fight").GetComponent<StartFightButton>();
             numJugadores = startFightScript.numPlayers();
+            PlayerPrefs.SetInt("numJugadores", numJugadores);
             if(GameObject.Find("Label1") != null) {
                 Player1Controller = GameObject.Find("Label1").GetComponent<Text>().text;
                 players.Add(Player1Controller);

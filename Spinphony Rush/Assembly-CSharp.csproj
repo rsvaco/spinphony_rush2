@@ -74,9 +74,11 @@
     <Compile Include="Assets\Scripts\Menus\FightConfiguration.cs" />
     <Compile Include="Assets\Scripts\Menus\MainMenu.cs" />
     <Compile Include="Assets\Scripts\Menus\MapSelection.cs" />
+    <Compile Include="Assets\Scripts\Menus\OpcionesMenu.cs" />
     <Compile Include="Assets\Scripts\Menus\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\Menus\PhonySelectioner.cs" />
     <Compile Include="Assets\Scripts\Menus\PhonySelector.cs" />
+    <Compile Include="Assets\Scripts\Menus\Podio.cs" />
     <Compile Include="Assets\Scripts\Menus\Returnable.cs" />
     <Compile Include="Assets\Scripts\Menus\StartFightButton.cs" />
     <Compile Include="Assets\Scripts\Phonies\PhonyActionFactory.cs" />
@@ -90,6 +92,7 @@
     <Compile Include="Assets\Scripts\Phonies\PhonyReverb.cs" />
     <Compile Include="Assets\Scripts\Phonies\PhonyRotation.cs" />
     <Compile Include="Assets\Scripts\RandomBoost.cs" />
+    <Compile Include="Assets\Scripts\Rotar.cs" />
     <None Include="Assets\DataMaps\TreeRandomPoints.txt" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>D:/Users/Arturo/Documents/GitHub/spinphony_rush2/Spinphony Rush/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>

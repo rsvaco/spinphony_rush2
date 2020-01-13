@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class FightConfiguration : MonoBehaviour
 {
     public Button backButton, startButton;
+    public InputField rondas;
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +19,9 @@ public class FightConfiguration : MonoBehaviour
 
     private void OnClickStart()
     {
+        int numrondas = int.Parse(rondas.text);
+        PlayerPrefs.SetInt("totalrondas", numrondas);
+        PlayerPrefs.SetInt("rondas", numrondas);
         SceneManager.LoadScene("Map Selection");
     }
 

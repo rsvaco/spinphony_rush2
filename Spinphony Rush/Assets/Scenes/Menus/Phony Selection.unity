@@ -594,7 +594,7 @@ MonoBehaviour:
   m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 1
   m_PreserveAspect: 0
-  m_FillCenter: 1
+  m_FillCenter: 0
   m_FillMethod: 4
   m_FillAmount: 1
   m_FillClockwise: 1
@@ -864,8 +864,8 @@ GameObject:
   - component: {fileID: 166848240}
   - component: {fileID: 166848239}
   m_Layer: 5
-  m_Name: Text
-  m_TagString: Untagged
+  m_Name: NumRondas
+  m_TagString: numRondas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1209,7 +1209,6 @@ MonoBehaviour:
   addButton: {fileID: 2013632307}
   tarjeta: {fileID: 597602015}
   readyButton: {fileID: 971177917}
-  phony_count: 1
 --- !u!1 &188374685
 GameObject:
   m_ObjectHideFlags: 0
@@ -1865,7 +1864,6 @@ MonoBehaviour:
   addButton: {fileID: 462941106}
   tarjeta: {fileID: 1033423847}
   readyButton: {fileID: 76287253}
-  phony_count: 1
 --- !u!1 &277041758
 GameObject:
   m_ObjectHideFlags: 0
@@ -5030,12 +5028,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   peonzas:
-  - {fileID: 21300000, guid: fd54c1bf81ee8434f978cbb257b94f05, type: 3}
-  - {fileID: 21300000, guid: a082b94e04ea7c14695240bbd5d0550b, type: 3}
-  - {fileID: 21300000, guid: 05382ff71e471eb438088b0178771659, type: 3}
+  - {fileID: 21300000, guid: 289ba1fc273967847a192f4ee446d9c6, type: 3}
+  - {fileID: 21300000, guid: 31c1875d04ce6a240995e1c60fa55a55, type: 3}
+  - {fileID: 21300000, guid: 64df48be99085034488b33539342abd8, type: 3}
+  - {fileID: 21300000, guid: 73fd2cd10e2b12e42b847ea6bd2f4866, type: 3}
   peonza: {fileID: 87459584}
   rightButton: {fileID: 850172957}
   leftButton: {fileID: 623951287}
+  peonzaSeleccionada: 0
 --- !u!1 &850172955
 GameObject:
   m_ObjectHideFlags: 0
@@ -6721,7 +6721,6 @@ MonoBehaviour:
   addButton: {fileID: 1572824472}
   tarjeta: {fileID: 1139461385}
   readyButton: {fileID: 513615510}
-  phony_count: 1
 --- !u!1 &1158858974
 GameObject:
   m_ObjectHideFlags: 0
@@ -7053,13 +7052,13 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1172318115}
   m_TextComponent: {fileID: 166848239}
   m_Placeholder: {fileID: 1960636389}
-  m_ContentType: 0
+  m_ContentType: 2
   m_InputType: 0
   m_AsteriskChar: 42
-  m_KeyboardType: 0
+  m_KeyboardType: 4
   m_LineType: 0
   m_HideMobileInput: 0
-  m_CharacterValidation: 0
+  m_CharacterValidation: 1
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
@@ -7074,7 +7073,7 @@ MonoBehaviour:
   m_CaretColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_CustomCaretColor: 0
   m_SelectionColor: {r: 0.65882355, g: 0.80784315, b: 1, a: 0.76862746}
-  m_Text: 
+  m_Text: 5
   m_CaretBlinkRate: 0.85
   m_CaretWidth: 1
   m_ReadOnly: 0
@@ -7876,12 +7875,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   peonzas:
-  - {fileID: 21300000, guid: fd54c1bf81ee8434f978cbb257b94f05, type: 3}
-  - {fileID: 21300000, guid: a082b94e04ea7c14695240bbd5d0550b, type: 3}
-  - {fileID: 21300000, guid: 05382ff71e471eb438088b0178771659, type: 3}
+  - {fileID: 21300000, guid: 289ba1fc273967847a192f4ee446d9c6, type: 3}
+  - {fileID: 21300000, guid: 31c1875d04ce6a240995e1c60fa55a55, type: 3}
+  - {fileID: 21300000, guid: 64df48be99085034488b33539342abd8, type: 3}
+  - {fileID: 21300000, guid: 73fd2cd10e2b12e42b847ea6bd2f4866, type: 3}
   peonza: {fileID: 1839443635}
   rightButton: {fileID: 1032544071}
   leftButton: {fileID: 1413799030}
+  peonzaSeleccionada: 0
 --- !u!1 &1314951327
 GameObject:
   m_ObjectHideFlags: 0
@@ -9481,6 +9482,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backButton: {fileID: 188374687}
   startButton: {fileID: 288228300}
+  rondas: {fileID: 1172318114}
 --- !u!1 &1702151675
 GameObject:
   m_ObjectHideFlags: 0
@@ -9534,7 +9536,6 @@ MonoBehaviour:
   addButton: {fileID: 2111702688}
   tarjeta: {fileID: 1076433486}
   readyButton: {fileID: 1959196127}
-  phony_count: 1
 --- !u!1 &1760056727
 GameObject:
   m_ObjectHideFlags: 0
@@ -9810,12 +9811,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   peonzas:
-  - {fileID: 21300000, guid: fd54c1bf81ee8434f978cbb257b94f05, type: 3}
-  - {fileID: 21300000, guid: a082b94e04ea7c14695240bbd5d0550b, type: 3}
-  - {fileID: 21300000, guid: 05382ff71e471eb438088b0178771659, type: 3}
+  - {fileID: 21300000, guid: 289ba1fc273967847a192f4ee446d9c6, type: 3}
+  - {fileID: 21300000, guid: 31c1875d04ce6a240995e1c60fa55a55, type: 3}
+  - {fileID: 21300000, guid: 64df48be99085034488b33539342abd8, type: 3}
+  - {fileID: 21300000, guid: 73fd2cd10e2b12e42b847ea6bd2f4866, type: 3}
   peonza: {fileID: 1432671911}
   rightButton: {fileID: 814163682}
   leftButton: {fileID: 1516188571}
+  peonzaSeleccionada: 0
 --- !u!1 &1848365076
 GameObject:
   m_ObjectHideFlags: 0
@@ -10851,12 +10854,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   peonzas:
-  - {fileID: 21300000, guid: fd54c1bf81ee8434f978cbb257b94f05, type: 3}
-  - {fileID: 21300000, guid: a082b94e04ea7c14695240bbd5d0550b, type: 3}
-  - {fileID: 21300000, guid: 05382ff71e471eb438088b0178771659, type: 3}
+  - {fileID: 21300000, guid: 289ba1fc273967847a192f4ee446d9c6, type: 3}
+  - {fileID: 21300000, guid: 31c1875d04ce6a240995e1c60fa55a55, type: 3}
+  - {fileID: 21300000, guid: 64df48be99085034488b33539342abd8, type: 3}
+  - {fileID: 21300000, guid: 73fd2cd10e2b12e42b847ea6bd2f4866, type: 3}
   peonza: {fileID: 342221939}
   rightButton: {fileID: 1426890586}
   leftButton: {fileID: 467494575}
+  peonzaSeleccionada: 0
 --- !u!1 &2032471218
 GameObject:
   m_ObjectHideFlags: 0

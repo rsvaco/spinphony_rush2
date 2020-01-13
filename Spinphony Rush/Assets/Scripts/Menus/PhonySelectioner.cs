@@ -9,6 +9,7 @@ public class PhonySelectioner : MonoBehaviour
     public Sprite[] peonzas;
     public GameObject peonza;
     public Button rightButton, leftButton;
+    public int peonzaSeleccionada;
 
     private int currentSprite;
     // Start is called before the first frame update
@@ -24,6 +25,7 @@ public class PhonySelectioner : MonoBehaviour
     void Update()
     {
         peonza.GetComponent<Image>().sprite = peonzas[currentSprite];
+        peonzaSeleccionada = currentSprite;
     }
 
     private void OnLeft()
