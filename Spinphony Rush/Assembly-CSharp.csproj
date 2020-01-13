@@ -93,6 +93,8 @@
     <Compile Include="Assets\Scripts\Phonies\PhonyRotation.cs" />
     <Compile Include="Assets\Scripts\RandomBoost.cs" />
     <Compile Include="Assets\Scripts\Rotar.cs" />
+    <Compile Include="Assets\Scripts\RotarPlataforma.cs" />
+    <Compile Include="Assets\Scripts\RotateAround.cs" />
     <None Include="Assets\DataMaps\TreeRandomPoints.txt" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>D:/Users/Arturo/Documents/GitHub/spinphony_rush2/Spinphony Rush/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>

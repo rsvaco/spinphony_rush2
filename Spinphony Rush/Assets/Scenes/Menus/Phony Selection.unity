@@ -1073,6 +1073,10 @@ MonoBehaviour:
   tarjeta2: {fileID: 1033423847}
   tarjeta3: {fileID: 597602015}
   tarjeta4: {fileID: 1139461385}
+  selector1: {fileID: 671265021}
+  selector2: {fileID: 47709502}
+  selector3: {fileID: 1053943182}
+  selector4: {fileID: 985709020}
   startFightButton: {fileID: 168640826}
   fightConfiguration: {fileID: 1677317989}
 --- !u!1 &179389111
@@ -1172,7 +1176,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &186397995
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1209,6 +1213,7 @@ MonoBehaviour:
   addButton: {fileID: 2013632307}
   tarjeta: {fileID: 597602015}
   readyButton: {fileID: 971177917}
+  despertarSiguiente: {fileID: 1147410773}
 --- !u!1 &188374685
 GameObject:
   m_ObjectHideFlags: 0
@@ -1864,6 +1869,7 @@ MonoBehaviour:
   addButton: {fileID: 462941106}
   tarjeta: {fileID: 1033423847}
   readyButton: {fileID: 76287253}
+  despertarSiguiente: {fileID: 186397994}
 --- !u!1 &277041758
 GameObject:
   m_ObjectHideFlags: 0
@@ -5036,6 +5042,7 @@ MonoBehaviour:
   rightButton: {fileID: 850172957}
   leftButton: {fileID: 623951287}
   peonzaSeleccionada: 0
+  numPeonza: 1
 --- !u!1 &850172955
 GameObject:
   m_ObjectHideFlags: 0
@@ -6684,7 +6691,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1147410774
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6721,6 +6728,7 @@ MonoBehaviour:
   addButton: {fileID: 1572824472}
   tarjeta: {fileID: 1139461385}
   readyButton: {fileID: 513615510}
+  despertarSiguiente: {fileID: 186397994}
 --- !u!1 &1158858974
 GameObject:
   m_ObjectHideFlags: 0
@@ -7883,6 +7891,7 @@ MonoBehaviour:
   rightButton: {fileID: 1032544071}
   leftButton: {fileID: 1413799030}
   peonzaSeleccionada: 0
+  numPeonza: 4
 --- !u!1 &1314951327
 GameObject:
   m_ObjectHideFlags: 0
@@ -9536,6 +9545,7 @@ MonoBehaviour:
   addButton: {fileID: 2111702688}
   tarjeta: {fileID: 1076433486}
   readyButton: {fileID: 1959196127}
+  despertarSiguiente: {fileID: 260521443}
 --- !u!1 &1760056727
 GameObject:
   m_ObjectHideFlags: 0
@@ -9819,6 +9829,7 @@ MonoBehaviour:
   rightButton: {fileID: 814163682}
   leftButton: {fileID: 1516188571}
   peonzaSeleccionada: 0
+  numPeonza: 2
 --- !u!1 &1848365076
 GameObject:
   m_ObjectHideFlags: 0
@@ -10862,6 +10873,7 @@ MonoBehaviour:
   rightButton: {fileID: 1426890586}
   leftButton: {fileID: 467494575}
   peonzaSeleccionada: 0
+  numPeonza: 3
 --- !u!1 &2032471218
 GameObject:
   m_ObjectHideFlags: 0

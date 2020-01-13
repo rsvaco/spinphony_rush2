@@ -9,6 +9,7 @@ public class PhonySelector : MonoBehaviour
     public Button addButton;
     public GameObject tarjeta;
     public Button readyButton;
+    public GameObject despertarSiguiente;
 
     public static PhonySelector Instance;
 
@@ -27,6 +28,7 @@ public class PhonySelector : MonoBehaviour
     private void showTarjeta()
     {
         addButton.gameObject.SetActive(false);
+        despertarSiguiente.SetActive(true);
         tarjeta.SetActive(true);
     }
 

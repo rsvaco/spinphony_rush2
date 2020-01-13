@@ -27,10 +27,12 @@ public class PhonyIAController : MonoBehaviour
     private bool isJump = false;
     private bool isMove = false;
     private int points;
+    private int count;
 
     private bool isBeaten = false;
     private bool keysDisabler = false;
     private bool isReverb = false;
+    private bool insideLimits = true;
 
     public PhysicMaterial normalPhysic;
     public PhysicMaterial movePhysic;
@@ -42,6 +44,7 @@ public class PhonyIAController : MonoBehaviour
     public KeyCode hability;
     public KeyCode boost;
     public KeyCode reverb;
+    public KeyCode teclaCurrente;
 
     private int collisionCount = 0;
 
@@ -90,6 +93,11 @@ public class PhonyIAController : MonoBehaviour
         phonyReverb.actionTime(isReverb, 0.1f);
         phonyBeaten.actionTime(isBeaten, 0.35f);
 
+        count++;
+        if (count % 500 == 0) {
+            generarTecla(UnityEngine.Random.Range(0, 5));
+        }
+
         checkFuelle();
 
     }
@@ -104,26 +112,24 @@ public class PhonyIAController : MonoBehaviour
 
         if (!isOnLimits())
         {
-            Destroy(this.transform.parent.gameObject);
+            Destroy(this.gameObject.transform.parent.gameObject);
         }
         if (collisionCount == 0)
         {
             phony_body.AddForce(Physics.gravity * 3);
         }
 
-        calcularDireccion();
-
         if (!onPush)
         {
             addMovement(speed);
             phony_body.velocity = Vector3.ClampMagnitude(phony_body.velocity, maxSpeed);
-            if (Input.GetKey(hability))
+            if (currentTecla(hability))
             {
                 timer += Time.deltaTime;
                 seconds = (int)timer % 60;
                 if (seconds >= 3) seconds = 3;
             }
-            else if (Input.GetKeyUp(hability)) onPush = true;
+            else if (currentTecla(hability)) onPush = true;
         }
 
         else if (onPush)
@@ -187,12 +193,17 @@ public class PhonyIAController : MonoBehaviour
             phony_body.drag = 0;
             collisionCount++;
         }
-        if (col.gameObject.name == "Phony_Player" || col.gameObject.name == "Phony_IA")
+        if (col.gameObject.tag == "phony" || col.gameObject.tag == "Player" || col.gameObject.name == "Phony_IA")
         {
             Vector3 vel = col.gameObject.GetComponent<Rigidbody>().velocity;
             if (phony_body.velocity.magnitude >= vel.magnitude)
             {
                 points += 100;
+
+            }
+            else
+            {
+                phony_fuelle.fuelleSlider.value = phony_fuelle.fuelleSlider.value - (float)0.1;
             }
             float dir = Vector3.Dot(col.gameObject.GetComponent<Rigidbody>().velocity.normalized, phony_body.velocity.normalized);
             vel *= (this.phony_body.velocity.magnitude * 0.25f);
@@ -243,19 +254,19 @@ public class PhonyIAController : MonoBehaviour
             phony_body.drag = 0.1f;
             collisionCount--;
         }
+        if (col.gameObject.tag == "Limit")
+        {
+            insideLimits = false;
+        }
 
-        if (col.gameObject.name == "Phony_Player" || col.gameObject.name == "Phony_IA")
+
+        if (col.gameObject.tag == "phony" || col.gameObject.tag == "Player" || col.gameObject.name == "Phony_IA")
         {
             Physics.IgnoreCollision(col.collider, phony_body.gameObject.GetComponent<MeshCollider>(), false);
         }
     }
 
-    private void calcularDireccion()
-    {
-
-    }
-
-        private void addMovement(float speed)
+    private void addMovement(float speed)
     {
         Vector3 currentRotation = phony_body.transform.localRotation.eulerAngles;
         bool checkLeftAngle = (currentRotation.z <= 15 && currentRotation.z >= 0);
@@ -267,7 +278,7 @@ public class PhonyIAController : MonoBehaviour
         {
             if (!keysDisabler)
             {
-                if (Input.GetKey(left))
+                if (currentTecla(left))
                 {
                     phony_body.AddForce(Vector3.left * speed);
                     if (checkLeftAngle)
@@ -282,7 +293,7 @@ public class PhonyIAController : MonoBehaviour
                         phony_body.transform.localRotation = Quaternion.Euler(currentRotation);
                     }
                 }
-                if (Input.GetKey(right))
+                if (currentTecla(right))
                 {
                     phony_body.AddForce(Vector3.right * speed);
                     if (checkRightAngle)
@@ -297,7 +308,7 @@ public class PhonyIAController : MonoBehaviour
                         phony_body.transform.localRotation = Quaternion.Euler(currentRotation);
                     }
                 }
-                if (Input.GetKey(up))
+                if (currentTecla(up))
                 {
                     phony_body.AddForce(Vector3.forward * speed);
                     if (condForwardAngle)
@@ -312,7 +323,7 @@ public class PhonyIAController : MonoBehaviour
                         phony_body.transform.localRotation = Quaternion.Euler(currentRotation);
                     }
                 }
-                if (Input.GetKey(down))
+                if (currentTecla(down))
                 {
                     phony_body.AddForce(Vector3.back * speed);
                     if (condBackwardAngle)
@@ -328,12 +339,12 @@ public class PhonyIAController : MonoBehaviour
                     }
                 }
 
-                if (Input.GetKey(reverb))
+                if (currentTecla(reverb))
                 {
                     phonyReverb.reverb();
                 }
 
-                if (!Input.GetKey(left) && !Input.GetKey(right))
+                if (!currentTecla(left) && !currentTecla(right))
                 {
                     if (Mathf.Round(currentRotation.z) != 0)
                     {
@@ -349,7 +360,7 @@ public class PhonyIAController : MonoBehaviour
                         }
                     }
                 }
-                if (!Input.GetKey(down) && !Input.GetKey(up))
+                if (!currentTecla(down) && !currentTecla(up))
                 {
                     if (Mathf.Round(currentRotation.x) != 0)
                     {
@@ -372,11 +383,8 @@ public class PhonyIAController : MonoBehaviour
     }
 
     private bool isOnLimits()
-    {
-        if (
-        Mathf.Abs(this.gameObject.transform.position.x) <= 300 &&
-        Mathf.Abs(this.gameObject.transform.position.y) <= 300 &&
-        Mathf.Abs(this.gameObject.transform.position.z) <= 300)
+    { /////toca cambiarlo entero
+        if (insideLimits)
         {
             return true;
         }
@@ -406,7 +414,7 @@ public class PhonyIAController : MonoBehaviour
         else
         {
             phony_body.transform.GetChild(0).Rotate(0f, 6f, 0f, Space.Self);
-            if (Input.GetKey(boost))
+            if (currentTecla(boost))
             {
                 if (haveJump) phonyBoostJump.jump();
                 if (haveShield) phonyBoostShield.shield();
@@ -416,11 +424,35 @@ public class PhonyIAController : MonoBehaviour
         }
     }
 
+    private KeyCode generarTecla(int r) {
+        switch (r)
+        {
+            case 0:
+                return up;
+                break;
+            case 1:
+                return down;
+                break;
+            case 2:
+                return left;
+                break;
+            case 3:
+                return right;
+                break;
+            default:
+                return up;
+        }
+    }
+
+    private bool currentTecla(KeyCode k) {
+        return k == teclaCurrente;
+    }
+
     private bool muerte()
     {
         muerto = true;
-        this.transform.parent.gameObject.tag = "Untagged";
         gameObject.tag = "Untagged";
+        this.transform.parent.gameObject.tag = "Untagged";
         Destroy(currentFuelle.gameObject, 1.0f);
         this.enabled = false;
         print("Destroyed");

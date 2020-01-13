@@ -16,6 +16,22 @@ public class GameRules : MonoBehaviour
     public GameObject player3;
     public GameObject player4;
 
+    public GameObject renderer1;
+    public GameObject renderer2;
+    public GameObject renderer3;
+    public GameObject renderer4;
+
+    public Mesh malla1;
+    public Mesh malla2;
+    public Mesh malla3;
+    public Mesh malla4;
+
+    public Material material1;
+    public Material material2;
+    public Material material3;
+    public Material material4;
+
+
     public GameObject hud1;
     public GameObject hud2;
     public GameObject hud3;
@@ -35,24 +51,88 @@ public class GameRules : MonoBehaviour
         {
             player1.SetActive(true);
             hud1.SetActive(true);
+            if (PlayerPrefs.GetInt("peonza1") == 0) {
+                renderer1.GetComponent<MeshFilter>().mesh = malla1;
+            }
+            if (PlayerPrefs.GetInt("peonza1") == 1)
+            {
+                renderer1.GetComponent<MeshFilter>().mesh = malla2;
+            }
+            if (PlayerPrefs.GetInt("peonza1") == 2)
+            {
+                renderer1.GetComponent<MeshFilter>().mesh = malla3;
+            }
+            if (PlayerPrefs.GetInt("peonza1") == 3)
+            {
+                renderer1.GetComponent<MeshFilter>().mesh = malla4;
+            }
+
 
             if (players >= 2)
             {
                 player2.SetActive(true);
                 hud2.SetActive(true);
                 //player2.GetComponentInChildren<PhonyPlayerController>().setKeys(DataObject.player2Keyboard);
+                if (PlayerPrefs.GetInt("peonza2") == 0)
+                {
+                    renderer2.GetComponent<MeshFilter>().mesh = malla1;
+                }
+                if (PlayerPrefs.GetInt("peonza2") == 1)
+                {
+                    renderer2.GetComponent<MeshFilter>().mesh = malla2;
+                }
+                if (PlayerPrefs.GetInt("peonza2") == 2)
+                {
+                    renderer2.GetComponent<MeshFilter>().mesh = malla3;
+                }
+                if (PlayerPrefs.GetInt("peonza2") == 3)
+                {
+                    renderer2.GetComponent<MeshFilter>().mesh = malla4;
+                }
             }
             if (players >= 3)
             {
                 player3.SetActive(true);
                 hud3.SetActive(true);
                 //player3.GetComponentInChildren<PhonyPlayerController>().setKeys(DataObject.player3Keyboard);
+                if (PlayerPrefs.GetInt("peonza3") == 0)
+                {
+                    renderer3.GetComponent<MeshFilter>().mesh = malla1;
+                }
+                if (PlayerPrefs.GetInt("peonza3") == 1)
+                {
+                    renderer3.GetComponent<MeshFilter>().mesh = malla2;
+                }
+                if (PlayerPrefs.GetInt("peonza3") == 2)
+                {
+                    renderer3.GetComponent<MeshFilter>().mesh = malla3;
+                }
+                if (PlayerPrefs.GetInt("peonza3") == 3)
+                {
+                    renderer3.GetComponent<MeshFilter>().mesh = malla4;
+                }
             }
-            if (players == 4)
+            if (players == 3)
             {
                 player4.SetActive(true);
                 hud4.SetActive(true);
                 //player4.GetComponentInChildren<PhonyPlayerController>().setKeys(DataObject.player4Keyboard);
+                if (PlayerPrefs.GetInt("peonza4") == 0)
+                {
+                    renderer4.GetComponent<MeshFilter>().mesh = malla1;
+                }
+                if (PlayerPrefs.GetInt("peonza4") == 1)
+                {
+                    renderer4.GetComponent<MeshFilter>().mesh = malla2;
+                }
+                if (PlayerPrefs.GetInt("peonza4") == 2)
+                {
+                    renderer4.GetComponent<MeshFilter>().mesh = malla3;
+                }
+                if (PlayerPrefs.GetInt("peonza4") == 3)
+                {
+                    renderer4.GetComponent<MeshFilter>().mesh = malla4;
+                }
             }
 
             siguienteBoton.onClick.AddListener(siguienteRonda);

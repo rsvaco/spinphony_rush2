@@ -170,11 +170,15 @@ public class PhonyPlayerController : MonoBehaviour {
             phony_body.drag = 0;
             collisionCount++;
         }
-        if (col.gameObject.name == "Phony_Player" || col.gameObject.name == "Phony_IA") {
+        if (col.gameObject.tag == "phony" || col.gameObject.tag == "Player" || col.gameObject.name == "Phony_IA") {
             Vector3 vel = col.gameObject.GetComponent<Rigidbody>().velocity;
             if (phony_body.velocity.magnitude >= vel.magnitude)
             {
                 points += 100;
+
+            }
+            else {
+                phony_fuelle.fuelleSlider.value =  phony_fuelle.fuelleSlider.value - (float) 0.1;
             }
             float dir = Vector3.Dot(col.gameObject.GetComponent<Rigidbody>().velocity.normalized, phony_body.velocity.normalized);
             vel *= (this.phony_body.velocity.magnitude * 0.25f);
@@ -224,7 +228,7 @@ public class PhonyPlayerController : MonoBehaviour {
         }
 
 
-        if (col.gameObject.name == "Phony_Player" || col.gameObject.name == "Phony_IA")
+        if (col.gameObject.tag == "phony" || col.gameObject.tag == "Player" || col.gameObject.name == "Phony_IA")
         {
             Physics.IgnoreCollision(col.collider, phony_body.gameObject.GetComponent<MeshCollider>(), false);
         }
